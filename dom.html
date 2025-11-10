@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title">hello</h1>
+    <button onclick="changetext()">click</button> 
+
+    <h2 id="heading">Heading2</h2>
+    <h3 class="heading3">Heading3</h3>
+
+    <div id="content" >hello</div>
+    <button onclick="update()">update The content</button>
+
+<div id="container"></div>
+    <button onclick="addElement()">clicl to add element</button>
+
+    <button id="btn">Click to call addEventListener</button>
+
+    <script>
+        function changetext(){ // when user click the button then this function is called and text in h1 is changed 
+         const heading=document.getElementById("title")
+        console.log(heading) // here it will access hello using the id
+        heading.textContent = "Kevin Rakholiya"
+        }
+
+        const element = document.querySelector("#heading") // access element by id
+        element.style.color = "red"
+
+        const element1 = document.querySelector(".heading3") // access element by class name
+        element1.style.color = "blue"
+
+        function update() {
+            const div = document.getElementById("content").innerHTML='<h1>Hello World</h1>' // here use the innerHTML for updateing the content
+        }
+
+        function addElement(params) { // this function add new paragraph in div 
+            const para = document.createElement("p")
+            console.log(para)
+            para.textContent="this is new paragraph"
+            document.getElementById("container").appendChild(para)
+        }            
+        
+        const btn = document.getElementById("btn")
+        btn.addEventListener("click", function addEventListener() {
+            alert("addEventListener Called")
+        })
+
+    </script>
+</body>
+</html>
