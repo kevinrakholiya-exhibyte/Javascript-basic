@@ -29,7 +29,7 @@ if (z < 10 || z > 18) {
   alert( 'The office is closed.' );
 }
 
-// Logical And (&&)
+// Logical AND (&&)
 alert( true && true );   // true
 alert( false && true );  // false
 alert( true && false );  // false
@@ -45,6 +45,7 @@ if (hour == 12 && minute == 30) {
 // Ternary Operators
 
 // condition ? If True : If False
-let age = 18;
-let canVote = (age >= 18) ? "Yes" : "No";
-console.log(canVote); // Yes
+let num = 5;
+let result = (num % 2 === 0) ? "Even" : "Odd";
+console.log(result);
+
