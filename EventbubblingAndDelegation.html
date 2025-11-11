@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="inner">
+            <button id="btn">Click Me</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("btn").addEventListener("click" , (e) =>{
+            console.log("Button Clicked")
+           // e.stopPropagation() to stop event bubbling
+        })
+
+        document.getElementById("inner").addEventListener("click", () =>{
+            console.log("Inner div called")
+        })
+
+        document.getElementById("outer").addEventListener("click" , ()=>{
+            console.log("outer div called")
+        })
+    </script>
+</body>
+
+</html>

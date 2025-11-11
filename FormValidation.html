@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="formValidate">
+        <table>
+            <tr>
+                <th>Name</th>
+                <td><input type="text" id="name"></td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td><input type="text" id="email"></td>
+            </tr>
+            <tr>
+                <th>Ph.No</th>
+                <td><input type="text" id="phno"></td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td><input type="password" id="password"></td>
+            </tr>
+            <tr>
+                <td><input type="submit"></td>
+            </tr>
+
+        </table>
+    </form>
+
+    <p id="errmsg" style="color: red;"></p>
+
+
+
+
+
+
+    <script>
+
+        document.getElementById("formValidate").addEventListener("submit", function (event) {
+
+            event.preventDefault()
+
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phno = document.getElementById("phno").value.trim();
+            let pass = document.getElementById("password").value.trim();
+            let err = document.getElementById("errmsg")
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/  
+
+
+            if (name === "") {
+                err.textContent = "Name is Required"
+            } else if (!emailRegex.test(email)) {
+                err.textContent = "Please Enter valid Email"
+            } else if (phno.length  < 10){
+                err.textContent = "Please Enter the Valid Phone Number"
+            } else if (pass.length  < 6){
+                err.textContent = "Password must be at least 6 characters"
+            } else {
+                err.textContent = ""
+                alert("Form submitted successfully")
+            }
+
+        })
+    </script>
+</body>
+
+</html>
