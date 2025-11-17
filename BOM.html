@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="title">Resize the window</h1>
+    <script>
+        // window is global 
+        window.addEventListener('load', () => {
+            console.log('Page fully loaded (BOM: window load event)');
+        });
+
+        window.addEventListener('resize', () => {
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            document.getElementById('title').textContent = `Size: ${w}x${h}`;
+        });
+
+        console.log(location.href);     // returns the href (URL) of the current page
+        console.log(location.hostname);    // returns the domain name of the web host
+        console.log(location.pathname);  // returns the path and filename of the current page
+        console.log(location.protocol); // returns the web protocol used (http: or https:)
+
+    </script>
+</body>
+
+</html>
