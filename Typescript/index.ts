@@ -22,12 +22,12 @@ let users: { name: string, age: number }[] = [
 console.log(users[0].name)
 console.log(users[1].age)
 
-type User = {
+type User1 = {
     readonly id: number,
     name: string
 }
 
-const userList: User[] = [
+const userList: User1[] = [
     { id: 1, name: "Kevin" },
     { id: 2, name: "john" }
 ]
@@ -59,3 +59,66 @@ const cart: CartItem[] = [
     { id: 2, ProductName: "T-Shirt", price: 500, quantity: 2 },
     { id: 3, ProductName: "Shoes", price: 1000, quantity: 1 }
 ]
+
+
+//Interface and Generics 
+
+interface User {
+    id: number,
+    name: string,
+    email: string,
+    isActive: boolean
+}
+
+interface ApiResponse<T> {
+    success: boolean,
+    data: T,
+    message?: string
+}
+
+
+async function getUser(): Promise<ApiResponse<User>> {
+    return {
+        success: true,
+        data: {
+            id: 101,
+            name: "Kevin",
+            email: "Kevin@gmail.com",
+            isActive: true
+        }
+    }
+}
+
+async function ShowUser() {
+    const response = await getUser()
+    if (response.success) {
+        console.log("User Data", response.data)
+    } else {
+        console.log("Error While Fetching Data")
+    }
+}
+
+ShowUser()
+
+
+interface PaymentService {
+    pay(amount: number): void;
+}
+
+class RazorpayService implements PaymentService {
+    pay(amount: number): void {
+        console.log("Paid using Razorpay:", amount);
+    }
+}
+
+class StripeService implements PaymentService {
+    pay(amount: number): void {
+        console.log("Paid using Stripe:", amount);
+    }
+}
+
+function executePayment(service: PaymentService, amount: number) {
+    service.pay(amount);
+}
+
+executePayment(new RazorpayService(), 500);
